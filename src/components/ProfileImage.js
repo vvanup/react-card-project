@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/index.css';
+import '../App.css';
 
 const ProfileImage = (props) =>{
     return (

@@ -4,8 +4,15 @@ import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle , Row} from 'reactstrap';
 import SocialIconContainer from './SocialIconContainer';
 import ProfileImage from './ProfileImage';
-import '../css/index.css' ;
-  
+import '../App.css';
+
+function RenderVideo(item){
+    var props = item.props
+    if(props.video){
+        return <video src={props.video} poster={props.imageUrl} controls/>
+    }
+    return  <CardImg top width="100%" src={props.imageUrl} alt="Card image cap" />
+}
 
 const CardLayout = (props)=>{
     const item = props.cards;
@@ -20,14 +27,13 @@ const CardLayout = (props)=>{
           <CardText>{item.content}</CardText>
         </CardBody>
         <CardBody>
-          <CardImg top width="100%" src={item.imageUrl} alt="Card image cap" />
+          <RenderVideo props={item}/>
         </CardBody>
         <CardBody>
           <SocialIconContainer/>
         </CardBody>
       </Card>
       </Row>
-     
     );
 }
 
